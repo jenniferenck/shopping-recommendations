@@ -4,6 +4,7 @@ import './App.css';
 import GifList from '../GifList';
 import SearchBar from '../SearchBar';
 import GiphyApi from '../GiphyApi';
+import OAuthButton from '../OAuthButton';
 
 class App extends Component {
   constructor(props) {
@@ -28,8 +29,8 @@ class App extends Component {
 
   // on initial page load, fetch trending Gifs and check localStorage for any favorites
   async componentDidMount() {
-    const trendingGifs = await GiphyApi.fetchTrendingGifs();
-    this.setState({ trendingGifs: trendingGifs.data });
+    // const trendingGifs = await GiphyApi.fetchTrendingGifs();
+    // this.setState({ trendingGifs: trendingGifs.data });
 
     // check localStorage, parse and set favorited Gifs array
     if (localStorage.favorites) {
@@ -140,6 +141,7 @@ class App extends Component {
             handleFavoritesView={this.toggleFavoritesView}
             favoritesView={favoritesView}
           />
+          <OAuthButton />
         </div>
         <h3 className="gif-list-header">
           {activeSearch
