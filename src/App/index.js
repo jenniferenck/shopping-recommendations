@@ -3,7 +3,6 @@ import React, { Component } from 'react';
 import './App.css';
 import GifList from '../GifList';
 import SearchBar from '../SearchBar';
-import GiphyApi from '../GiphyApi';
 import OAuthButton from '../OAuthButton';
 
 class App extends Component {
@@ -20,11 +19,6 @@ class App extends Component {
       offset: 25,
       loadingMoreGifs: false
     };
-    this.fetchGifs = this.fetchGifs.bind(this);
-    this.fetchMoreGifs = this.fetchMoreGifs.bind(this);
-    this.clearSearchResults = this.clearSearchResults.bind(this);
-    this.addOrRemoveFavorite = this.addOrRemoveFavorite.bind(this);
-    this.toggleFavoritesView = this.toggleFavoritesView.bind(this);
   }
 
   // on initial page load, fetch trending Gifs and check localStorage for any favorites
@@ -44,15 +38,17 @@ class App extends Component {
     window.removeEventListener('scroll', this.onScroll);
   }
 
+  //  Replace this with 'fetchBoards'
+
   // API request for gifs that meet search term
-  async fetchGifs(searchTerm) {
-    this.setState({ activeSearch: true });
-    const searchResults = await GiphyApi.fetchGifs(searchTerm);
-    this.setState({
-      recentSearchGifs: searchResults.data,
-      currentSearchTerm: searchTerm
-    });
-  }
+  // async fetchGifs(searchTerm) {
+  //   this.setState({ activeSearch: true });
+  //   const searchResults = await GiphyApi.fetchGifs(searchTerm);
+  //   this.setState({
+  //     recentSearchGifs: searchResults.data,
+  //     currentSearchTerm: searchTerm
+  //   });
+  // }
 
   onScroll = () => {
     const {
@@ -75,51 +71,23 @@ class App extends Component {
       window.innerHeight + document.documentElement.scrollTop ===
       document.documentElement.offsetHeight
     ) {
-      fetchMoreGifs(this.state.offset);
+      // fetchMoreGifs(this.state.offset);
     }
   };
 
+  // example below handles pagination and infinite scroll
+
   // fetches more gifs with current offset and adds to trending/ recentsearch
-  async fetchMoreGifs() {
-    this.setState({ loadingMoreGifs: true });
-    const moreGifs = await GiphyApi.fetchMoreGifs(this.state.offset);
-    // update offset increment by 25 and add new gifs to list
-    this.setState(st => ({
-      offset: st.offset + 25,
-      trendingGifs: [...st.trendingGifs, ...moreGifs],
-      loadingMoreGifs: false
-    }));
-  }
-
-  clearSearchResults() {
-    this.setState({ activeSearch: false, recentSearchGifs: [] });
-  }
-
-  // takes a gif object, adds/removes it to/from favorited array and replaces localStorage
-  // if favorite is TRUE --> add to local storage and state, if FALSE --> remove
-  addOrRemoveFavorite(gifObj, favorite) {
-    const newGif = {};
-    newGif[gifObj.id] = gifObj;
-    let newFavorites;
-
-    if (favorite) {
-      newFavorites = { ...this.state.favoritedGifs, ...newGif };
-      this.setState({ favoritedGifs: newFavorites });
-      localStorage.setItem('favorites', JSON.stringify(newFavorites));
-    } else {
-      // find in favorites, replace local storage with new object
-      // make a copy of current state
-      newFavorites = this.state.favoritedGifs;
-      delete newFavorites[gifObj.id];
-
-      this.setState({ favoritedGifs: newFavorites });
-      localStorage.setItem('favorites', JSON.stringify(newFavorites));
-    }
-  }
-
-  toggleFavoritesView() {
-    this.setState(st => ({ favoritesView: !st.favoritesView }));
-  }
+  // async fetchMoreGifs() {
+  //   this.setState({ loadingMoreGifs: true });
+  //   const moreGifs = await GiphyApi.fetchMoreGifs(this.state.offset);
+  //   // update offset increment by 25 and add new gifs to list
+  //   this.setState(st => ({
+  //     offset: st.offset + 25,
+  //     trendingGifs: [...st.trendingGifs, ...moreGifs],
+  //     loadingMoreGifs: false
+  //   }));
+  // }
 
   render() {
     const {
