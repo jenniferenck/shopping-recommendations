@@ -9,6 +9,8 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      authCode: '',
+      accessToken: '',
       trendingGifs: [],
       recentSearchGifs: [],
       favoritedGifs: {},
@@ -21,17 +23,16 @@ class App extends Component {
     };
   }
 
-  // on initial page load, fetch trending Gifs and check localStorage for any favorites
   async componentDidMount() {
-    // const trendingGifs = await GiphyApi.fetchTrendingGifs();
-    // this.setState({ trendingGifs: trendingGifs.data });
+    // on initial page load, check if we have an access code, if NOT, display button to request
 
-    // check localStorage, parse and set favorited Gifs array
-    if (localStorage.favorites) {
-      const storedFavorites = localStorage.getItem('favorites');
-      const favoritesObj = JSON.parse(storedFavorites);
-      this.setState({ favoritedGifs: favoritesObj });
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams) {
+      console.log(urlParams.get('code'));
+      this.setState({ authCode: urlParams.get('code') });
     }
+    // If we have a code, send API request to get access token
+
     window.addEventListener('scroll', this.onScroll);
   }
   componentWillUnmount() {
