@@ -25,21 +25,29 @@ class App extends Component {
     if (localStorage.accessToken) {
       this.setState({ accessToken: localStorage.accessToken });
     }
-    // can change this to ELSE
-    const urlParams = new URLSearchParams(window.location.search);
-    if (urlParams) {
-      const authCode = urlParams.get('code');
-      this.setState({ authCode: urlParams.get('code') });
 
-      // If we have a code, send API request to get access token
-      if (authCode) {
-        // ADD error handling!
-        const accessToken = await PinterestApi.getAccessToken(authCode);
-        this.setState({ accessToken: accessToken });
+    // if access token is not saved, check if we have an authCode then get accessToken
+    else {
+      const urlParams = new URLSearchParams(window.location.search);
+      if (urlParams) {
+        const authCode = urlParams.get('code');
+        this.setState({ authCode: urlParams.get('code') });
 
-        // set to localStorage
-        localStorage.setItem('accessToken', accessToken);
+        // If we have a code, send API request to get access token
+        if (authCode) {
+          // ADD error handling!
+          const accessToken = await PinterestApi.getAccessToken(authCode);
+          this.setState({ accessToken: accessToken });
+
+          // set to localStorage
+          localStorage.setItem('accessToken', accessToken);
+        }
       }
+    }
+
+    if (localStorage.accessToken) {
+      // get boards with accessToken
+      PinterestApi.getUserBoards(localStorage.accessToken);
     }
 
     window.addEventListener('scroll', this.onScroll);
