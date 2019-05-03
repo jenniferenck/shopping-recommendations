@@ -114,7 +114,7 @@ class App extends Component {
     } = this.state;
     return (
       <div className="App">
-        <Nav />
+        <Nav allowedAccess={this.state.accessToken ? true : false} />
         <h3 className="gif-list-header">
           {activeSearch
             ? `GIPHY results for: #${currentSearchTerm}`
