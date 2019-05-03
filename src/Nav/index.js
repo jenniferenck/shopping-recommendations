@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 
+import './Nav.css';
 import SearchBar from '../SearchBar';
 import Button from '../Button';
 
