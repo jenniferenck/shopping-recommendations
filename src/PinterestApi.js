@@ -23,7 +23,7 @@ class PinterestApi {
       `${BASE_REQUEST_URL}me/boards/?access_token=${accessToken}`
     );
     console.log(results);
-    return results.data;
+    return results.data.data;
   }
 }
 
