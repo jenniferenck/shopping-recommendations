@@ -17,3 +17,11 @@
 6. Integrate Google Shop API
 
 **MORE TO COME!**
+
+**INSTRUCTIONS TO RUN**
+
+##This project was bootsrapped with CreateReactApp
+
+For set up, run `npm install`
+
+To run on your device, run `npm start`
