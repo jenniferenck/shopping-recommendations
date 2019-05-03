@@ -3,6 +3,7 @@ const axios = require('axios');
 
 // in order to access a user's board, they must first be redirected to pinterest to give read permission
 const O_AUTH_URL = `https://api.pinterest.com/v1/oauth/token?`;
+const BASE_REQUEST_URL = 'https://api.pinterest.com/v1/';
 
 class PinterestApi {
   // After user gives read/ write permission, we receive an 'access code' in the query string
@@ -10,12 +11,18 @@ class PinterestApi {
 
   static async getAccessToken(authCode) {
     // An access token allows us to make requests on user's behalf
-    console.log(authCode);
     const results = await axios.post(
       `${O_AUTH_URL}grant_type=authorization_code&client_id=${MY_PINTEREST_APP_ID}&client_secret=${PINTEREST_KEY}&code=${authCode}`
     );
-    console.log(results);
     return results.data.access_token;
+  }
+
+  // by default, returns up to 25 boards
+  static async getUserBoards(accessToken) {
+    const results = await axios.get(
+      `${BASE_REQUEST_URL}me/boards/?access_token=${accessToken}`
+    );
+    console.log(results);
   }
 }
 
