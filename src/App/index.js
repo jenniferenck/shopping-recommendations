@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import './App.css';
 import Nav from '../Nav';
 import PinterestApi from '../PinterestApi';
+import BoardsList from '../BoardsList';
 
 class App extends Component {
   constructor(props) {
@@ -21,7 +22,10 @@ class App extends Component {
 
   async componentDidMount() {
     // on initial page load, check if we have an access code, if NOT, display button to request
-
+    if (localStorage.accessToken) {
+      this.setState({ accessToken: localStorage.accessToken });
+    }
+    // can change this to ELSE
     const urlParams = new URLSearchParams(window.location.search);
     if (urlParams) {
       const authCode = urlParams.get('code');
@@ -29,10 +33,12 @@ class App extends Component {
 
       // If we have a code, send API request to get access token
       if (authCode) {
+        // ADD error handling!
         const accessToken = await PinterestApi.getAccessToken(authCode);
         this.setState({ accessToken: accessToken });
 
         // set to localStorage
+        localStorage.setItem('accessToken', accessToken);
       }
     }
 
@@ -111,6 +117,7 @@ class App extends Component {
         <p>Saved Searches</p>
         <p>Recent Searches</p>
         <p>My boards</p>
+        <BoardsList boards={userBoards} />
 
         {/* <h3>{loadingMoreGifs ? 'Loading more...' : ''}</h3> */}
       </div>
