@@ -3,52 +3,23 @@ import ImageItem from '../ImageItem';
 import './HorizontalList.css';
 
 class HorizontalList extends Component {
-  // store favorites in arr to render each favorite
-  displayFavorites = () => {
-    const { handleAddOrRemoveFav, favoritedGifs } = this.props;
-    const favoritesArr = [];
-
-    for (let fav in favoritedGifs) {
-      favoritesArr.push(favoritedGifs[fav]);
-    }
-    return favoritesArr.map(gif => (
-      <ImageItem
-        favorited={favoritedGifs[gif.id] ? true : false}
-        key={gif.id}
-        id={gif.id}
-        title={gif.title}
-        imageUrl={gif.imageUrl}
-        source={gif.source}
-        rating={gif.rating}
-        handleAddOrRemoveFav={handleAddOrRemoveFav}
-      />
-    ));
-  };
-
-  displayNormalView = () => {
-    const { handleAddOrRemoveFav, favoritedGifs, gifs } = this.props;
-    return gifs.length ? (
-      gifs.map(gif => (
-        <ImageItem
-          favorited={favoritedGifs[gif.id] ? true : false}
-          key={gif.id}
-          id={gif.id}
-          title={gif.title}
-          imageUrl={gif.images.fixed_height.url}
-          source={gif.source}
-          rating={gif.rating}
-          handleAddOrRemoveFav={handleAddOrRemoveFav}
-        />
-      ))
-    ) : (
-      <h2>GIFs Loading...</h2>
-    );
-  };
   render() {
-    const { favoritesView } = this.props;
+    const { boards } = this.props;
+    console.log(boards);
     return (
       <div className="gif-list-section">
-        {favoritesView ? this.displayFavorites() : this.displayNormalView()}
+        {boards.length ? (
+          boards.map(board => (
+            <ImageItem
+              key={board.id}
+              id={board.id}
+              name={board.name}
+              url={board.url}
+            />
+          ))
+        ) : (
+          <h2>Your boards are loading...</h2>
+        )}
       </div>
     );
   }
