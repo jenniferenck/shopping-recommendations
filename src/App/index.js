@@ -115,21 +115,16 @@ class App extends Component {
     return (
       <div className="App">
         <Nav allowedAccess={this.state.accessToken ? true : false} />
-        <h3 className="gif-list-header">
-          {activeSearch
-            ? `GIPHY results for: #${currentSearchTerm}`
-            : favoritesView
-            ? 'My favorites...'
-            : "What's Trending..."}
-        </h3>
 
-        <GifList
-          handleAddOrRemoveFav={this.addOrRemoveFavorite}
-          gifs={activeSearch ? recentSearchGifs : trendingGifs}
-          favoritedGifs={favoritedGifs}
-          favoritesView={favoritesView}
-        />
-        <h3>{loadingMoreGifs ? 'Loading more...' : ''}</h3>
+        <h2>
+          Temporary header while the following component lists are being
+          constructed...
+        </h2>
+        <p>Trending Searches</p>
+        <p>My Custom Shops</p>
+        <p>My boards</p>
+
+        {/* <h3>{loadingMoreGifs ? 'Loading more...' : ''}</h3> */}
       </div>
     );
   }
