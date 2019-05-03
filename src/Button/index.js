@@ -1,19 +1,22 @@
 import React, { Component } from 'react';
-import './OAuthButton.css';
+import './Button.css';
 const { MY_PINTEREST_APP_ID } = require('../PinterestID');
 
-class OAuthButton extends Component {
+class Button extends Component {
   render() {
+    const { allowedAccess } = this.props;
     return (
       <div>
         <a
           href={`https://api.pinterest.com/oauth/?response_type=code&redirect_uri=http://localhost:3000&client_id=${MY_PINTEREST_APP_ID}&scope=read_public,write_public`}
         >
-          <button id="oAuthButton">Get Pinterest Auth</button>
+          <button id="button">
+            {allowedAccess ? 'start a custom search' : 'get your boards'}
+          </button>
         </a>
       </div>
     );
   }
 }
 
-export default OAuthButton;
+export default Button;

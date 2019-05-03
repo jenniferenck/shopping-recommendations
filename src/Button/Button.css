@@ -1,4 +1,4 @@
-#oAuthButton {
+#button {
   color: white;
   padding: 1em;
   background-color: rgba(0, 0, 0, 0.3);
@@ -7,7 +7,7 @@
   cursor: pointer;
 }
 
-#oAuthButton:hover {
+#button:hover {
   animation: pulse 1s infinite;
   color: greenyellow;
 }
