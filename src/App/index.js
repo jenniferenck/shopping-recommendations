@@ -4,6 +4,7 @@ import './App.css';
 import GifList from '../GifList';
 import SearchBar from '../SearchBar';
 import OAuthButton from '../OAuthButton';
+import PinterestApi from '../PinterestApi';
 
 class App extends Component {
   constructor(props) {
@@ -28,13 +29,20 @@ class App extends Component {
 
     const urlParams = new URLSearchParams(window.location.search);
     if (urlParams) {
-      console.log(urlParams.get('code'));
+      const authCode = urlParams.get('code');
       this.setState({ authCode: urlParams.get('code') });
+
+      // If we have a code, send API request to get access token
+      if (authCode) {
+        const accessToken = await PinterestApi.getAccessToken(authCode);
+        this.setState({ accessToken: accessToken });
+        console.log(accessToken);
+      }
     }
-    // If we have a code, send API request to get access token
 
     window.addEventListener('scroll', this.onScroll);
   }
+
   componentWillUnmount() {
     window.removeEventListener('scroll', this.onScroll);
   }
@@ -91,6 +99,10 @@ class App extends Component {
   // }
 
   render() {
+    if (this.state.accessToken) {
+      console.log(this.state.accessToken);
+    }
+
     const {
       recentSearchGifs,
       trendingGifs,
