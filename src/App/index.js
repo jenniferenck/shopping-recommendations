@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 
 import './App.css';
-import GifList from '../GifList';
 import Nav from '../Nav';
 import PinterestApi from '../PinterestApi';
 
@@ -11,13 +10,10 @@ class App extends Component {
     this.state = {
       authCode: '',
       accessToken: '',
-      trendingGifs: [],
-      recentSearchGifs: [],
-      favoritedGifs: {},
+      userBoards: [],
+      savedSearches: [],
+      recentSearches: [],
       activeSearch: false,
-      activeModal: false,
-      favoritesView: false,
-      currentSearchTerm: '',
       offset: 25,
       loadingMoreGifs: false
     };
@@ -103,15 +99,7 @@ class App extends Component {
       console.log(this.state.accessToken);
     }
 
-    const {
-      recentSearchGifs,
-      trendingGifs,
-      favoritesView,
-      currentSearchTerm,
-      favoritedGifs,
-      activeSearch,
-      loadingMoreGifs
-    } = this.state;
+    const { userBoards, savedSearches, recentSearches } = this.state;
     return (
       <div className="App">
         <Nav allowedAccess={this.state.accessToken ? true : false} />
@@ -120,8 +108,8 @@ class App extends Component {
           Temporary header while the following component lists are being
           constructed...
         </h2>
-        <p>Trending Searches</p>
-        <p>My Custom Shops</p>
+        <p>Saved Searches</p>
+        <p>Recent Searches</p>
         <p>My boards</p>
 
         {/* <h3>{loadingMoreGifs ? 'Loading more...' : ''}</h3> */}
