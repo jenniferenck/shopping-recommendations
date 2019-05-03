@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './OAuthButton.css';
 const { MY_PINTEREST_APP_ID } = require('../PinterestID');
 
 class OAuthButton extends Component {
@@ -8,7 +9,7 @@ class OAuthButton extends Component {
         <a
           href={`https://api.pinterest.com/oauth/?response_type=code&redirect_uri=http://localhost:3000&client_id=${MY_PINTEREST_APP_ID}&scope=read_public,write_public`}
         >
-          <button>Get Pinterest Auth</button>
+          <button id="oAuthButton">Get Pinterest Auth</button>
         </a>
       </div>
     );

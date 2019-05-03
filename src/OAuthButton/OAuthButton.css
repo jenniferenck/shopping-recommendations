@@ -1,0 +1,13 @@
+#oAuthButton {
+  color: white;
+  padding: 1em;
+  background-color: rgba(0, 0, 0, 0.3);
+  border: none;
+  margin-left: 0.5em;
+  cursor: pointer;
+}
+
+#oAuthButton:hover {
+  animation: pulse 1s infinite;
+  color: greenyellow;
+}
