@@ -6,6 +6,9 @@
   align-items: center;
   width: 200px;
   height: 200px;
+  background-color: aquamarine;
+  opacity: 0.8;
+  border-radius: 5px;
 }
 
 img {
