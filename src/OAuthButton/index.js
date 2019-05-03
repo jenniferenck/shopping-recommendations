@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import MY_PINTEREST_APP_ID from '../PinterestID';
+const { MY_PINTEREST_APP_ID } = require('../PinterestID');
 
 class OAuthButton extends Component {
   render() {
