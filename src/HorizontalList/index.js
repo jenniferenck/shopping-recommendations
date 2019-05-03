@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import Gif from '../Gif';
-import './GifList.css';
+import ImageItem from '../ImageItem';
+import './HorizontalList.css';
 
-class GifList extends Component {
+class HorizontalList extends Component {
   // store favorites in arr to render each favorite
   displayFavorites = () => {
     const { handleAddOrRemoveFav, favoritedGifs } = this.props;
@@ -12,7 +12,7 @@ class GifList extends Component {
       favoritesArr.push(favoritedGifs[fav]);
     }
     return favoritesArr.map(gif => (
-      <Gif
+      <ImageItem
         favorited={favoritedGifs[gif.id] ? true : false}
         key={gif.id}
         id={gif.id}
@@ -29,7 +29,7 @@ class GifList extends Component {
     const { handleAddOrRemoveFav, favoritedGifs, gifs } = this.props;
     return gifs.length ? (
       gifs.map(gif => (
-        <Gif
+        <ImageItem
           favorited={favoritedGifs[gif.id] ? true : false}
           key={gif.id}
           id={gif.id}
@@ -54,4 +54,4 @@ class GifList extends Component {
   }
 }
 
-export default GifList;
+export default HorizontalList;

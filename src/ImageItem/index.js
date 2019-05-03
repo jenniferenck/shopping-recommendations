@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import './Gif.css';
+import './ImageItem.css';
 
-class Gif extends Component {
+class ImageItem extends Component {
   constructor(props) {
     super(props);
     this.toggleFavorite = this.toggleFavorite.bind(this);
@@ -36,4 +36,4 @@ class Gif extends Component {
   }
 }
 
-export default Gif;
+export default ImageItem;
