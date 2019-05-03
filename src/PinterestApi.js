@@ -17,12 +17,13 @@ class PinterestApi {
     return results.data.access_token;
   }
 
-  // by default, returns up to 25 boards
+  // by default, returns up to 25 boards in an array of objects
   static async getUserBoards(accessToken) {
     const results = await axios.get(
       `${BASE_REQUEST_URL}me/boards/?access_token=${accessToken}`
     );
     console.log(results);
+    return results.data;
   }
 }
 
