@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 
 import './App.css';
 import GifList from '../GifList';
-import SearchBar from '../SearchBar';
-import OAuthButton from '../OAuthButton';
+import Nav from '../Nav';
 import PinterestApi from '../PinterestApi';
 
 class App extends Component {
@@ -36,7 +35,8 @@ class App extends Component {
       if (authCode) {
         const accessToken = await PinterestApi.getAccessToken(authCode);
         this.setState({ accessToken: accessToken });
-        console.log(accessToken);
+
+        // set to localStorage
       }
     }
 
@@ -114,16 +114,7 @@ class App extends Component {
     } = this.state;
     return (
       <div className="App">
-        <div className="App-header">
-          <h2>Search your favorite GIFs in one place!</h2>
-          <SearchBar
-            handleSearch={this.fetchGifs}
-            handleReset={this.clearSearchResults}
-            handleFavoritesView={this.toggleFavoritesView}
-            favoritesView={favoritesView}
-          />
-          <OAuthButton />
-        </div>
+        <Nav />
         <h3 className="gif-list-header">
           {activeSearch
             ? `GIPHY results for: #${currentSearchTerm}`
