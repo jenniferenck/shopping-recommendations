@@ -7,7 +7,7 @@ class HorizontalList extends Component {
     const { boards } = this.props;
     console.log(boards);
     return (
-      <div className="gif-list-section">
+      <div className="horizontal-list-section">
         {boards.length ? (
           boards.map(board => (
             <ImageItem

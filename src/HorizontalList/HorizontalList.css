@@ -1,7 +1,7 @@
-.gif-list-section {
+.horizontal-list-section {
   position: relative;
-  width: 100%;
+  width: 80%;
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: flex-start;
 }
