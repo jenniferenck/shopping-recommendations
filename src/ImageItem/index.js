@@ -18,10 +18,10 @@ class ImageItem extends Component {
       <div className="image-item">
         {/* <img src={imageUrl} alt={title} /> */}
         <div className="text-overlay">
-          <i
+          {/* <i
             onClick={this.toggleFavorite}
             className={`far fa-heart ${favorited ? 'favorited' : ''}`}
-          />
+          /> */}
           <div>{name}</div>
         </div>
       </div>
