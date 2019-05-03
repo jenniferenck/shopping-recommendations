@@ -1,8 +1,13 @@
 import React, { Component } from 'react';
+import HorizontalList from '../HorizontalList';
 
 class BoardsList extends Component {
   render() {
-    return <div>A list of boards goes here...</div>;
+    return (
+      <div>
+        <HorizontalList boards={this.props.boards} />
+      </div>
+    );
   }
 }
 
