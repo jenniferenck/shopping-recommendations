@@ -13,23 +13,16 @@ class ImageItem extends Component {
   }
 
   render() {
-    const { title, imageUrl, rating, favorited } = this.props;
+    const { name, id, url } = this.props;
     return (
-      <div className="gif" onDoubleClickCapture={this.handleDoubleTap}>
-        <img src={imageUrl} alt={title} />
+      <div className="image-item">
+        {/* <img src={imageUrl} alt={title} /> */}
         <div className="text-overlay">
           <i
             onClick={this.toggleFavorite}
             className={`far fa-heart ${favorited ? 'favorited' : ''}`}
           />
-          <div>
-            <h4>Title:</h4>
-            <p>{title ? title : 'Not available'}</p>
-          </div>
-          <div>
-            <h4>Rating:</h4>
-            <p>{rating}</p>
-          </div>
+          <div>{name}</div>
         </div>
       </div>
     );

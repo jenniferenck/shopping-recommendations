@@ -1,9 +1,11 @@
-.gif {
+.image-item {
   margin: 1em;
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 200px;
+  height: 200px;
 }
 
 img {
