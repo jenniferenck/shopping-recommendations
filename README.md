@@ -1,17 +1,20 @@
-# Take-home exercise for frontend interviews at Eaze
+## This is a multi-integrated API application. Below are the objectives of this project:
 
-Frontend coding challenge for Jennifer Enck.
+**Users should be able to:**
 
-**Note**
+1. Gain access to their Pinterest Boards via OAuth
+2. Search for shopping recommendations based on keywords, selected categories or a board
+3. Select a board to give their search `inspiration`
+4. See search recommendations that are relevant to their interests
 
-You will need to add an API key to the `env.js` file within the `src` folder. You can generate an **API key** from GIPHY (link below) The following format is what your `env` file should look like:
+**Notes/ To-dos**
 
-const GIPHY_KEY = 'secretkeygoeshereinastringformat';
-
-export default GIPHY_KEY;
-
-Link to generate an API key: https://developers.giphy.com/
-(select `Create an App` and create an account to get a key)
+1. Finish populating `theme` pictures of users boards
+2. Create a drop-down form for users to create a new search
+3. Add stock themes for users to search
+4. Finish integrating the Clarifai API, so we can generate keywords based on boards
+5. Make our first Clarifai request and get keywords to search on Google Shop API
+6. Integrate Google Shop API
 
 ## Project
 
