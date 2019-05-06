@@ -24,28 +24,18 @@ class PinterestApi {
     const boards = await axios.get(
       `${BASE_REQUEST_URL}me/boards/?access_token=${accessToken}&fields=id,name,url,creator(id)`
     );
-    console.log(boards);
+
     return boards.data.data;
   }
 
-  // fetches all pins by board and returns object with board id as key with details and images
-  // array item example format:
-  // 0: {url: "https://www.pinterest.com/jenniferenck/check-it-out/", creator: {…}, id: "37999259295014566", name: "check it out"}
-  static async getUserPins(accessToken, boards) {
-    const boardName = Helpers.replaceSpacesWithUnderScore(boards[0].name);
-    console.log(boardName);
-
-    const pins = boards.map(board =>
-      axios.get(
-        `${BASE_REQUEST_URL}/boards/${boardName}/${
-          board.name
-        }/pins/?access_token=${accessToken}`
-      )
+  // fetches first 25 pins - we cannot search for pins by board as Pinterest limits the # of requests per hour
+  // returns an array of objects where we can match pins to boards
+  static async getUserPins(accessToken) {
+    const pins = await axios.get(
+      `${BASE_REQUEST_URL}me/pins/?access_token=${accessToken}&fields=id,url,board,note,counts,image`
     );
-
-    Promise.all(pins).then(values => console.log(values));
-
-    // use Promise.all() to fetch pins for each board
+    console.log(pins.data.data);
+    return pins.data.data;
   }
 }
 
