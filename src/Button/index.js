@@ -10,7 +10,7 @@ class Button extends Component {
         <a
           href={`https://api.pinterest.com/oauth/?response_type=code&redirect_uri=http://localhost:3000&client_id=${MY_PINTEREST_APP_ID}&scope=read_public,write_public`}
         >
-          <button id="button">
+          <button className="button">
             {allowedAccess ? 'start a custom search' : 'get your boards'}
           </button>
         </a>
