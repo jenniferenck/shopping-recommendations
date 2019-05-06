@@ -12,9 +12,15 @@ class Nav extends Component {
         <Logo />
 
         <ul className="nav-links">
-          <li className="nav-link">My store</li>
-          <li className="nav-link">Explore shops</li>
-          <li className="nav-link">Account</li>
+          <li className="nav-link">
+            <a href="http://">My store</a>
+          </li>
+          <li className="nav-link">
+            <a href="http://">Explore shops</a>
+          </li>
+          <li className="nav-link">
+            <a href="http://">Account</a>
+          </li>
         </ul>
 
         {activeSearch ? (

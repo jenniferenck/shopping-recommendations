@@ -11,3 +11,26 @@
   background: url('../images/hero-img.jpg') center no-repeat;
   background-size: cover;
 }
+
+.nav-links {
+  display: flex;
+  flex-direction: row;
+  float: right;
+  position: absolute;
+  right: 3em;
+}
+
+.nav-link {
+  list-style: none;
+  margin-left: 1em;
+}
+
+.nav-link a {
+  text-decoration: none;
+  color: white;
+}
+
+.nav-link:hover a {
+  color: aquamarine;
+  text-decoration: underline;
+}
