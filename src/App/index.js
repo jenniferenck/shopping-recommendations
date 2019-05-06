@@ -50,6 +50,11 @@ class App extends Component {
       const boards = await PinterestApi.getUserBoards(localStorage.accessToken);
       this.setState({ userBoards: boards });
       localStorage.setItem('userBoards', JSON.stringify(boards));
+
+      const pins = await PinterestApi.getUserPins(
+        localStorage.accessToken,
+        boards
+      );
     }
 
     window.addEventListener('scroll', this.onScroll);
