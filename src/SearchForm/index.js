@@ -24,29 +24,28 @@ class SearchBar extends Component {
   render() {
     const { handleReset, handleFavoritesView, favoritesView } = this.props;
     return (
-      <div className="searchbar-section">
+      <div className="search-form-container">
         <form onSubmit={this.handleSubmit} id="search-form">
-          <input
-            placeholder="Search for a gif here!"
-            type="text"
-            name="searchTerm"
-            value={this.state.searchTerm}
-            onChange={this.handleChange}
-          />
+          <div id="step-1">
+            <label htmlFor="">Keyword search</label>
+            <input
+              type="text"
+              placeholder="I'm shopping for...."
+              name="searchTerm"
+              value={this.state.searchTerm}
+              onChange={this.handleChange}
+            />
+
+            <label htmlFor="">Select a board</label>
+            <select name="boards" id="">
+              {/* map thru boards here */}
+            </select>
+
+            <label htmlFor="">Select a category</label>
+          </div>
+
+          <div id="step-2" />
         </form>
-
-        <div className="button-section">
-          <button onClick={this.handleSubmit} id="search">
-            Search
-          </button>
-          <button onClick={handleReset} id="reset-search">
-            Reset
-          </button>
-        </div>
-
-        <div className="favorites-clickable" onClick={handleFavoritesView}>
-          {favoritesView ? 'back to my non-favs' : 'view my favs'}
-        </div>
       </div>
     );
   }
