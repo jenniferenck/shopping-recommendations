@@ -2,13 +2,14 @@ import React, { Component } from 'react';
 
 import './Nav.css';
 import Button from '../Button';
+import Logo from '../Logo';
 
 class Nav extends Component {
   render() {
     const { allowedAccess, activeSearch, handleActiveSearch } = this.props;
     return (
       <div className="App-header">
-        {/* PLACEHOLDER FOR LOGO AND LINKS */}
+        <Logo />
 
         {activeSearch ? (
           <Button onClick={handleActiveSearch} />
