@@ -1,7 +1,7 @@
 .horizontal-list-section {
   position: relative;
-  width: 80%;
+  width: 80vw;
   display: flex;
-  flex-wrap: wrap;
   justify-content: center;
+  overflow-x: scroll;
 }

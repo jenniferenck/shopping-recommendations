@@ -4,7 +4,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 150px;
+  min-width: 150px;
   height: 150px;
   background-color: aquamarine;
   opacity: 0.8;

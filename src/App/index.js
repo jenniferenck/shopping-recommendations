@@ -150,16 +150,14 @@ class App extends Component {
         />
         {activeSearch ? <SearchForm /> : null}
 
-        <h2>
-          Temporary header while the following component lists are being
-          constructed...
-        </h2>
-        <p>Saved Searches</p>
+        <h2 className="section-title">Your recent searches</h2>
+
         {/* PLACEHOLDER UNTIL WE GET THE DATA */}
         <div
           style={{
             display: 'flex',
-            flexWrap: 'wrap',
+            overflowX: 'scroll',
+            width: '80vw',
             justifyContent: 'center'
           }}
         >
@@ -168,12 +166,13 @@ class App extends Component {
           <ImageItem name="placeholder" />
           <ImageItem name="placeholder" />
         </div>
-        <p>Recent Searches</p>
+        <h2 className="section-title">Popular categories to search</h2>
         {/* PLACEHOLDER UNTIL WE GET THE DATA */}
         <div
           style={{
             display: 'flex',
-            flexWrap: 'wrap',
+            overflowX: 'scroll',
+            width: '80vw',
             justifyContent: 'center'
           }}
         >
@@ -182,7 +181,8 @@ class App extends Component {
           <ImageItem name="placeholder" />
           <ImageItem name="placeholder" />
         </div>
-        <p>My boards</p>
+
+        <h2 className="section-title">Your boards</h2>
         <BoardsList boards={userBoards} />
 
         {/* <h3>{loadingMoreGifs ? 'Loading more...' : ''}</h3> */}
