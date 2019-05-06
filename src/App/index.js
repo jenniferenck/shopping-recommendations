@@ -14,6 +14,7 @@ class App extends Component {
       authCode: '',
       accessToken: '',
       userBoards: [],
+      userPins: [],
       savedSearches: [],
       recentSearches: [],
       activeSearch: false,
@@ -30,8 +31,11 @@ class App extends Component {
 
     // on initial page load, check local storage for boards, if none, check for access token
 
-    if (localStorage.userBoards) {
-      this.setState({ userBoards: JSON.parse(localStorage.userBoards) });
+    if (localStorage.userBoards && localStorage.userPins) {
+      this.setState({
+        userBoards: JSON.parse(localStorage.userBoards),
+        userPins: JSON.parse(localStorage.userPins)
+      });
     }
 
     if (localStorage.accessToken) {
@@ -44,11 +48,6 @@ class App extends Component {
         );
         this.setState({ userBoards: boards });
         localStorage.setItem('userBoards', JSON.stringify(boards));
-
-        const pins = await PinterestApi.getUserPins(
-          localStorage.accessToken,
-          boards
-        );
       }
     } else {
       // if access token is not saved, check if we have an authCode then get accessToken
@@ -67,6 +66,11 @@ class App extends Component {
           localStorage.setItem('accessToken', accessToken);
         }
       }
+    }
+    if (!localStorage.userPins) {
+      const pins = await PinterestApi.getUserPins(localStorage.accessToken);
+      this.setState({ userPins: pins });
+      localStorage.setItem('userPins', JSON.stringify(pins));
     }
 
     window.addEventListener('scroll', this.onScroll);
