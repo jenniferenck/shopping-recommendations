@@ -5,6 +5,7 @@ import Nav from '../Nav';
 import PinterestApi from '../PinterestApi';
 import BoardsList from '../BoardsList';
 import SearchForm from '../SearchForm';
+import ImageItem from '../ImageItem';
 
 class App extends Component {
   constructor(props) {
@@ -154,7 +155,33 @@ class App extends Component {
           constructed...
         </h2>
         <p>Saved Searches</p>
+        {/* PLACEHOLDER UNTIL WE GET THE DATA */}
+        <div
+          style={{
+            display: 'flex',
+            flexWrap: 'wrap',
+            justifyContent: 'center'
+          }}
+        >
+          <ImageItem name="placeholder" />
+          <ImageItem name="placeholder" />
+          <ImageItem name="placeholder" />
+          <ImageItem name="placeholder" />
+        </div>
         <p>Recent Searches</p>
+        {/* PLACEHOLDER UNTIL WE GET THE DATA */}
+        <div
+          style={{
+            display: 'flex',
+            flexWrap: 'wrap',
+            justifyContent: 'center'
+          }}
+        >
+          <ImageItem name="placeholder" />
+          <ImageItem name="placeholder" />
+          <ImageItem name="placeholder" />
+          <ImageItem name="placeholder" />
+        </div>
         <p>My boards</p>
         <BoardsList boards={userBoards} />
 
