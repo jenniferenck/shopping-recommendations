@@ -4,6 +4,7 @@ import './App.css';
 import Nav from '../Nav';
 import PinterestApi from '../PinterestApi';
 import BoardsList from '../BoardsList';
+import SearchForm from '../SearchForm';
 
 class App extends Component {
   constructor(props) {
@@ -115,15 +116,28 @@ class App extends Component {
   //   }));
   // }
 
+  toggleSearchBarView = () => {
+    this.setState(st => ({ activeSearch: !st.activeSearch }));
+  };
+
   render() {
     if (this.state.accessToken) {
       console.log(this.state.accessToken);
     }
 
-    const { userBoards, savedSearches, recentSearches } = this.state;
+    const {
+      userBoards,
+      savedSearches,
+      recentSearches,
+      activeSearch
+    } = this.state;
     return (
       <div className="App">
-        <Nav allowedAccess={this.state.accessToken ? true : false} />
+        <Nav
+          allowedAccess={this.state.accessToken ? true : false}
+          handleActiveSearch={this.toggleSearchBarView}
+        />
+        {activeSearch ? <SearchForm /> : null}
 
         <h2>
           Temporary header while the following component lists are being
