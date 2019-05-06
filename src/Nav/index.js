@@ -5,12 +5,16 @@ import Button from '../Button';
 
 class Nav extends Component {
   render() {
-    const { allowedAccess } = this.props;
+    const { allowedAccess, activeSearch, handleActiveSearch } = this.props;
     return (
       <div className="App-header">
         {/* PLACEHOLDER FOR LOGO AND LINKS */}
 
-        <Button allowedAccess={allowedAccess} />
+        {activeSearch ? (
+          <Button onClick={handleActiveSearch} />
+        ) : (
+          <Button allowedAccess={allowedAccess} onClick={handleActiveSearch} />
+        )}
       </div>
     );
   }

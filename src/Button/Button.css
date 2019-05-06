@@ -1,6 +1,8 @@
 #button {
   color: white;
+  font-family: 'Rasa', serif;
   padding: 1em;
+  font-size: 0.85em;
   background-color: rgba(0, 0, 0, 0.7);
   border: solid lightgrey 1px;
   position: absolute;
