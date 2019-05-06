@@ -3,6 +3,9 @@ class Helpers {
   static removeSpaces(str) {
     return (str = str.replace(' ', '+'));
   }
+  static replaceSpacesWithUnderScore(str) {
+    return (str = str.replace(/ /gi, '_'));
+  }
 }
 
 export default Helpers;
