@@ -2,6 +2,11 @@
   position: relative;
   width: 80vw;
   display: flex;
-  justify-content: center;
   overflow-x: scroll;
+}
+
+@media (min-width: 919px) {
+  .horizontal-list-section {
+    width: 60vw;
+  }
 }
