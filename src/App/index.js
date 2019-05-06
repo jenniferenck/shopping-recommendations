@@ -22,13 +22,35 @@ class App extends Component {
   }
 
   async componentDidMount() {
-    // on initial page load, check if we have an access code, if NOT, display button to request
-    if (localStorage.accessToken) {
-      this.setState({ accessToken: localStorage.accessToken });
+    /** For development (bc we are not yet approved, we are limited to 10 calls per hour)
+     *      to save our calls, we will store our boards in local storage to avoid a new call each time
+     *
+     * */
+
+    // on initial page load, check local storage for boards, if none, check for access token
+
+    if (localStorage.userBoards) {
+      this.setState({ userBoards: JSON.parse(localStorage.userBoards) });
     }
 
-    // if access token is not saved, check if we have an authCode then get accessToken
-    else {
+    if (localStorage.accessToken) {
+      this.setState({ accessToken: localStorage.accessToken });
+
+      // ONLY if boards were not found, do we make a request
+      if (!localStorage.userBoards) {
+        const boards = await PinterestApi.getUserBoards(
+          localStorage.accessToken
+        );
+        this.setState({ userBoards: boards });
+        localStorage.setItem('userBoards', JSON.stringify(boards));
+
+        const pins = await PinterestApi.getUserPins(
+          localStorage.accessToken,
+          boards
+        );
+      }
+    } else {
+      // if access token is not saved, check if we have an authCode then get accessToken
       const urlParams = new URLSearchParams(window.location.search);
       if (urlParams) {
         const authCode = urlParams.get('code');
@@ -44,18 +66,6 @@ class App extends Component {
           localStorage.setItem('accessToken', accessToken);
         }
       }
-    }
-
-    if (localStorage.accessToken) {
-      // get boards with accessToken and save to state and localStorage
-      const boards = await PinterestApi.getUserBoards(localStorage.accessToken);
-      this.setState({ userBoards: boards });
-      localStorage.setItem('userBoards', JSON.stringify(boards));
-
-      const pins = await PinterestApi.getUserPins(
-        localStorage.accessToken,
-        boards
-      );
     }
 
     window.addEventListener('scroll', this.onScroll);
