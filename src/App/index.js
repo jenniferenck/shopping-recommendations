@@ -147,6 +147,10 @@ class App extends Component {
       activeSearch,
       userPins
     } = this.state;
+    let randomPins = [];
+    if (userPins.length) {
+      randomPins.push(userPins[5], userPins[1], userPins[10], userPins[7]);
+    }
     return (
       <div className="App">
         <Nav
@@ -155,42 +159,16 @@ class App extends Component {
         />
         {activeSearch ? <SearchForm /> : null}
 
-        <h2 className="section-title">Your recent searches</h2>
+        <h2 className="section-title">Your pins</h2>
+        <BoardsList pins={userPins} />
 
+        <h2 className="section-title">Your recent searches</h2>
         {/* PLACEHOLDER UNTIL WE GET THE DATA */}
-        <div
-          style={{
-            display: 'flex',
-            overflowX: 'scroll',
-            width: '80vw',
-            justifyContent: 'center'
-          }}
-        >
-          <ImageItem name="placeholder" />
-          <ImageItem name="placeholder" />
-          <ImageItem name="placeholder" />
-          <ImageItem name="placeholder" />
-        </div>
+        <BoardsList pins={randomPins} />
+
         <h2 className="section-title">Popular categories to search</h2>
         {/* PLACEHOLDER UNTIL WE GET THE DATA */}
-        <div
-          style={{
-            display: 'flex',
-            overflowX: 'scroll',
-            width: '80vw',
-            justifyContent: 'center'
-          }}
-        >
-          <ImageItem name="placeholder" />
-          <ImageItem name="placeholder" />
-          <ImageItem name="placeholder" />
-          <ImageItem name="placeholder" />
-        </div>
-
-        <h2 className="section-title">Your boards</h2>
-        <BoardsList boards={userBoards} pins={userPins} />
-
-        {/* <h3>{loadingMoreGifs ? 'Loading more...' : ''}</h3> */}
+        <BoardsList pins={randomPins} />
       </div>
     );
   }
