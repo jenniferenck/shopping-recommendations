@@ -4,16 +4,16 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  min-width: 150px;
+  width: 150px;
   height: 150px;
   background-color: aquamarine;
-  opacity: 0.8;
   border-radius: 5px;
 }
 
 img {
   padding: 1em;
-  filter: drop-shadow(-4px 4px 2px purple);
+  min-width: 100%;
+  height: 100%;
 }
 
 .text-overlay {
