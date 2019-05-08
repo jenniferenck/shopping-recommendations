@@ -23,6 +23,15 @@ class Nav extends Component {
           </li>
         </ul>
 
+        <div className="intro-text-section">
+          <div className="intro-text">Been searching for that perfect {}?</div>
+          <div className="intro-text">Look no further</div>
+          <div className="intro-text">
+            Select up to 5 pins to start a search, or start a custom search with
+            your own criteria
+          </div>
+        </div>
+
         {activeSearch ? (
           <Button onClick={handleActiveSearch} />
         ) : (
