@@ -31,9 +31,8 @@ class App extends Component {
 
     // on initial page load, check local storage for boards, if none, check for access token
 
-    if (localStorage.userBoards && localStorage.userPins) {
+    if (localStorage.userPins) {
       this.setState({
-        userBoards: JSON.parse(localStorage.userBoards),
         userPins: JSON.parse(localStorage.userPins)
       });
     }
@@ -67,6 +66,7 @@ class App extends Component {
         }
       }
     }
+
     if (!localStorage.userPins) {
       const pins = await PinterestApi.getUserPins(localStorage.accessToken);
       this.setState({ userPins: pins });
@@ -144,7 +144,8 @@ class App extends Component {
       userBoards,
       savedSearches,
       recentSearches,
-      activeSearch
+      activeSearch,
+      userPins
     } = this.state;
     return (
       <div className="App">
@@ -187,7 +188,7 @@ class App extends Component {
         </div>
 
         <h2 className="section-title">Your boards</h2>
-        <BoardsList boards={userBoards} />
+        <BoardsList boards={userBoards} pins={userPins} />
 
         {/* <h3>{loadingMoreGifs ? 'Loading more...' : ''}</h3> */}
       </div>

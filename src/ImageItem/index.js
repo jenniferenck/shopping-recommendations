@@ -13,16 +13,16 @@ class ImageItem extends Component {
   }
 
   render() {
-    const { name, id, url } = this.props;
+    const { id, note, url, image, board } = this.props;
     return (
       <div className="image-item">
-        {/* <img src={imageUrl} alt={title} /> */}
+        <img src={image} alt={note} />
         <div className="text-overlay">
           {/* <i
             onClick={this.toggleFavorite}
             className={`far fa-heart ${favorited ? 'favorited' : ''}`}
           /> */}
-          <div>{name}</div>
+          <div>{board}</div>
         </div>
       </div>
     );

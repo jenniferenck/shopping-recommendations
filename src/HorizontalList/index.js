@@ -4,21 +4,24 @@ import './HorizontalList.css';
 
 class HorizontalList extends Component {
   render() {
-    const { boards } = this.props;
-    console.log(boards);
+    const { boards, pins } = this.props;
     return (
       <div className="horizontal-list-section">
-        {boards.length ? (
-          boards.map(board => (
+        {pins.length ? (
+          pins.map(pin => (
             <ImageItem
-              key={board.id}
-              id={board.id}
-              name={board.name}
-              url={board.url}
+              key={pin.id}
+              id={pin.id}
+              note={pin.note}
+              url={pin.url}
+              image={pin.image.original.url}
+              board={pin.board.name}
+              boardId={pin.board.id}
+              boardUrl={pin.board.url}
             />
           ))
         ) : (
-          <h2>Your boards are loading...</h2>
+          <h2>Your pins are loading...</h2>
         )}
       </div>
     );
