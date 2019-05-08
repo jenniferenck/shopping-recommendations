@@ -4,10 +4,10 @@ import './BoardList.css';
 
 class BoardsList extends Component {
   render() {
-    const { boards, pins } = this.props;
+    const { pins } = this.props;
     return (
       <div className="board-list">
-        <HorizontalList boards={boards} pins={pins} />
+        <HorizontalList pins={pins} />
       </div>
     );
   }
