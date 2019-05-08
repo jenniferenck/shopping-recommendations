@@ -4,7 +4,7 @@ import './HorizontalList.css';
 
 class HorizontalList extends Component {
   render() {
-    const { boards, pins } = this.props;
+    const { pins } = this.props;
     return (
       <div className="horizontal-list-section">
         {pins.length ? (
@@ -21,8 +21,14 @@ class HorizontalList extends Component {
             />
           ))
         ) : (
-          <h2>Your pins are loading...</h2>
+          <div>
+            <ImageItem />
+            <ImageItem />
+            <ImageItem />
+            <ImageItem />
+          </div>
         )}
+        <ImageItem />
       </div>
     );
   }
