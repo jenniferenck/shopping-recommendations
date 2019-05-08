@@ -6,7 +6,7 @@ class Button extends Component {
   render() {
     const { allowedAccess } = this.props;
     return (
-      <div>
+      <div className="button-row">
         {allowedAccess ? (
           <button className="button">start a custom search</button>
         ) : (

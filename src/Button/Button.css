@@ -1,3 +1,10 @@
+.button-row {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  bottom: 0.05em;
+}
+
 .button {
   color: white;
   font-family: 'Rasa', serif;
@@ -5,10 +12,7 @@
   font-size: 0.85em;
   background-color: rgba(0, 0, 0, 0.7);
   border: solid lightgrey 1px;
-  position: absolute;
-  left: 50%;
-  transform: translate(-50%);
-  bottom: 2em;
+
   cursor: pointer;
 }
 
