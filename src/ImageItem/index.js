@@ -13,15 +13,28 @@ class ImageItem extends Component {
   }
 
   render() {
-    const { id, note, url, image, board } = this.props;
+    const { note, image, board } = this.props;
     return (
       <div className="image-item">
-        <img src={image} alt={note} />
+        {image ? (
+          <img src={image} alt={note} />
+        ) : (
+          <div className="sk-fading-circle">
+            <div className="sk-circle1 sk-circle" />
+            <div className="sk-circle2 sk-circle" />
+            <div className="sk-circle3 sk-circle" />
+            <div className="sk-circle4 sk-circle" />
+            <div className="sk-circle5 sk-circle" />
+            <div className="sk-circle6 sk-circle" />
+            <div className="sk-circle7 sk-circle" />
+            <div className="sk-circle8 sk-circle" />
+            <div className="sk-circle9 sk-circle" />
+            <div className="sk-circle10 sk-circle" />
+            <div className="sk-circle11 sk-circle" />
+            <div className="sk-circle12 sk-circle" />
+          </div>
+        )}
         <div className="text-overlay">
-          {/* <i
-            onClick={this.toggleFavorite}
-            className={`far fa-heart ${favorited ? 'favorited' : ''}`}
-          /> */}
           <div>{board}</div>
         </div>
       </div>
