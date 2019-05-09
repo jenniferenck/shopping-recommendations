@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import ImageItem from '../ImageItem';
+import { CSSTransitionGroup } from 'react-transition-group';
+
 import './HorizontalList.css';
 
 class HorizontalList extends Component {
@@ -9,26 +11,35 @@ class HorizontalList extends Component {
       <div className="horizontal-list-section">
         {pins.length ? (
           pins.map(pin => (
-            <ImageItem
+            <CSSTransitionGroup
+              transitionName="example"
+              transitionAppear={true}
+              transitionAppearTimeout={1000}
+              transitionEnter={false}
+              transitionLeave={false}
               key={pin.id}
-              id={pin.id}
-              note={pin.note}
-              url={pin.url}
-              image={pin.image.original.url}
-              board={pin.board.name}
-              boardId={pin.board.id}
-              boardUrl={pin.board.url}
-            />
+            >
+              <ImageItem
+                key={pin.id}
+                id={pin.id}
+                note={pin.note}
+                url={pin.url}
+                image={pin.image.original.url}
+                board={pin.board.name}
+                boardId={pin.board.id}
+                boardUrl={pin.board.url}
+              />
+            </CSSTransitionGroup>
           ))
         ) : (
           <div>
-            <ImageItem />
-            <ImageItem />
-            <ImageItem />
-            <ImageItem />
+            <ImageItem key="1" />
+            <ImageItem key="2" />
+            <ImageItem key="3" />
+            <ImageItem key="4" />
           </div>
         )}
-        <ImageItem />
+        <ImageItem key="5" />
       </div>
     );
   }
