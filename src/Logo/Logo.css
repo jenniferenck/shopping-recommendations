@@ -2,6 +2,7 @@
   position: absolute;
   display: flex;
   flex-direction: column;
+  top: 1em;
 }
 
 .logo-container a {

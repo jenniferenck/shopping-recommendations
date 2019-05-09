@@ -1,10 +1,11 @@
 .nav {
   position: relative;
   display: flex;
+  align-items: flex-end;
   top: 0;
   width: 100%;
   padding: 1em;
-  height: 200px;
+  height: 320px;
   right: 0;
   overflow: visible;
   border-bottom: solid white 2px;
@@ -18,14 +19,16 @@
   float: right;
   position: absolute;
   right: 3em;
+  top: 1em;
 }
 
 .nav-link {
   list-style: none;
-  margin-left: 1em;
+  margin-left: 1.5em;
 }
 
 .nav-link a {
+  font-size: 1.15em;
   text-decoration: none;
   color: white;
 }
@@ -40,11 +43,12 @@
   flex-direction: column;
   text-align: -webkit-auto;
   position: relative;
-  margin-top: 50px;
-  margin-bottom: 1.1em;
-  font-size: 1.3em;
+  font-size: 1.85em;
   width: max-content;
-  margin-left: 6em;
+  margin-top: 3em;
+  margin-bottom: 1.1em;
+  margin-left: 10em;
+  margin-right: 2em;
 }
 
 .intro-text {

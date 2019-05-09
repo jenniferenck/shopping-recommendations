@@ -2,17 +2,15 @@
   display: flex;
   justify-content: center;
   position: relative;
-  height: 3em;
-  top: 50%;
-  transform: translate(0%, -50%);
-  margin: 1em;
+  height: 4em;
+  margin: 2.25em;
 }
 
 .button {
   color: white;
   font-family: 'Rasa', serif;
   padding: 1em;
-  font-size: 0.85em;
+  font-size: 0.95em;
   background-color: rgba(0, 0, 0, 0.7);
   border: solid lightgrey 1px;
 
