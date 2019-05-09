@@ -1,5 +1,6 @@
 .nav {
   position: relative;
+  display: flex;
   top: 0;
   width: 100%;
   padding: 1em;
@@ -42,8 +43,8 @@
   margin-top: 50px;
   margin-bottom: 1.1em;
   font-size: 1.3em;
-  left: 6em;
   width: max-content;
+  margin-left: 6em;
 }
 
 .intro-text {
