@@ -23,11 +23,11 @@ class WelcomePage extends Component {
                 <div className="intro-text">
                   Been searching for that perfect
                   <div className="sliding-vertical intro-text">
-                    <span>birthday gift?</span>
-                    <span>party dress?</span>
+                    <span>sweater?</span>
                     <span>pair of jeans?</span>
-                    <span>jacket?</span>
+                    <span>birthday gift?</span>
                     <span>watch?</span>
+                    <span>party dress?</span>
                     <span>couch?</span>
                   </div>
                 </div>

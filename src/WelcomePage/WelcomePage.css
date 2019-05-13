@@ -48,9 +48,9 @@
   text-indent: 8px;
 }
 .sliding-vertical span {
-  animation: topToBottom 12.5s linear infinite 0s;
-  -ms-animation: topToBottom 12.5s linear infinite 0s;
-  -webkit-animation: topToBottom 12.5s linear infinite 0s;
+  animation: topToBottom 15s linear infinite 0s;
+  -ms-animation: topToBottom 15s linear infinite 0s;
+  -webkit-animation: topToBottom 15s linear infinite 0s;
   color: #00abe9;
   opacity: 0;
   overflow: hidden;
@@ -77,6 +77,11 @@
   animation-delay: 10s;
   -ms-animation-delay: 10s;
   -webkit-animation-delay: 10s;
+}
+.sliding-vertical span:nth-child(6) {
+  animation-delay: 12.5s;
+  -ms-animation-delay: 12.5s;
+  -webkit-animation-delay: 12.5s;
 }
 
 /*topToBottom Animation*/
