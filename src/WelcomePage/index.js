@@ -43,7 +43,16 @@ class WelcomePage extends Component {
 
             <Button />
           </div>
-          <div className="right-side">Right side with Images Plain</div>
+          <div className="right-side">
+            <div className="scroll-container">
+              <div className="scroll-item">item</div>
+              <div className="scroll-item">item</div>
+              <div className="scroll-item">item</div>
+              <div className="scroll-item">item</div>
+              <div className="scroll-item">item</div>
+              <div className="scroll-item">item</div>
+            </div>
+          </div>
         </div>
       </div>
     );
