@@ -7,15 +7,11 @@ class Button extends Component {
     const { allowedAccess } = this.props;
     return (
       <div className="button-row">
-        {allowedAccess ? (
-          <button className="button">start a custom search</button>
-        ) : (
-          <a
-            href={`https://api.pinterest.com/oauth/?response_type=code&redirect_uri=http://localhost:3000&client_id=${MY_PINTEREST_APP_ID}&scope=read_public,write_public`}
-          >
-            <button className="button">get your boards</button>
-          </a>
-        )}
+        <a
+          href={`https://api.pinterest.com/oauth/?response_type=code&redirect_uri=http://localhost:3000&client_id=${MY_PINTEREST_APP_ID}&scope=read_public,write_public`}
+        >
+          <button className="button">Get started</button>
+        </a>
       </div>
     );
   }
