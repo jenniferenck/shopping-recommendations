@@ -6,6 +6,7 @@ import PinterestApi from '../PinterestApi';
 import BoardsList from '../BoardsList';
 import SearchForm from '../SearchForm';
 import ImageItem from '../ImageItem';
+import WelcomePage from '../WelcomePage';
 
 class App extends Component {
   constructor(props) {
@@ -145,30 +146,38 @@ class App extends Component {
       savedSearches,
       recentSearches,
       activeSearch,
+      accessToken,
       userPins
     } = this.state;
     let randomPins = [];
     if (userPins.length) {
       randomPins.push(userPins[5], userPins[1], userPins[10], userPins[7]);
     }
+
     return (
       <div className="App">
-        <Nav
-          allowedAccess={this.state.accessToken ? true : false}
-          handleActiveSearch={this.toggleSearchBarView}
-        />
-        {activeSearch ? <SearchForm /> : null}
+        {accessToken ? (
+          <div>
+            <Nav
+              allowedAccess="true"
+              handleActiveSearch={this.toggleSearchBarView}
+            />
+            <div>{activeSearch ? <SearchForm /> : null}</div>
 
-        <h2 className="section-title">Your pins</h2>
-        <BoardsList pins={userPins} />
+            <h2 className="section-title">Your pins</h2>
+            <BoardsList pins={userPins} />
 
-        <h2 className="section-title">Your recent searches</h2>
-        {/* PLACEHOLDER UNTIL WE GET THE DATA */}
-        <BoardsList pins={randomPins} />
+            <h2 className="section-title">Your recent searches</h2>
+            {/* PLACEHOLDER UNTIL WE GET THE DATA */}
+            <BoardsList pins={randomPins} />
 
-        <h2 className="section-title">Popular categories to search</h2>
-        {/* PLACEHOLDER UNTIL WE GET THE DATA */}
-        <BoardsList pins={randomPins} />
+            <h2 className="section-title">Popular categories to search</h2>
+            {/* PLACEHOLDER UNTIL WE GET THE DATA */}
+            <BoardsList pins={randomPins} />
+          </div>
+        ) : (
+          <WelcomePage />
+        )}
       </div>
     );
   }
