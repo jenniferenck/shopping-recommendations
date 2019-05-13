@@ -41,7 +41,7 @@ class Nav extends Component {
         >
           <div className="intro-text-section">
             <div className="intro-text">
-              Been searching for that perfect {}?
+              Been searching for that perfect <span>{}</span>?
             </div>
             <div className="intro-text">Look no further.</div>
             <div className="intro-text">
