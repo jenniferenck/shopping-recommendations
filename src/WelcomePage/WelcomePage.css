@@ -1,0 +1,33 @@
+.welcome-page {
+  display: flex;
+  flex-direction: column;
+}
+
+.welcome-page-body {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  width: 100vw;
+}
+
+.left-side {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  position: relative;
+  width: 50vw;
+}
+
+.right-side {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 50vw;
+}
+
+/* MEDIA QUERIES:
+Breakpoints: 
+- make left smaller than right
+- right side will change size based on the frame size
+- once we hit mobile, stack images on top with text on bottom
+*/
