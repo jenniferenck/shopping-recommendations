@@ -7,14 +7,6 @@ import Logo from '../Logo';
 
 class Nav extends Component {
   render() {
-    const categories = [
-      'pair of jeans',
-      'party dress',
-      'necklace',
-      'jacket',
-      'arm chair',
-      'birthday present'
-    ];
     const { allowedAccess, activeSearch, handleActiveSearch } = this.props;
     return (
       <div className="nav">
@@ -41,7 +33,15 @@ class Nav extends Component {
         >
           <div className="intro-text-section">
             <div className="intro-text">
-              Been searching for that perfect <span>{}</span>?
+              Been searching for that perfect
+              <div className="sliding-vertical intro-text">
+                <span>birthday gift?</span>
+                <span>party dress?</span>
+                <span>pair of jeans?</span>
+                <span>jacket?</span>
+                <span>watch?</span>
+                <span>couch?</span>
+              </div>
             </div>
             <div className="intro-text">Look no further.</div>
             <div className="intro-text">
