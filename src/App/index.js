@@ -72,16 +72,14 @@ class App extends Component {
         }
       }
     }
-
-    window.addEventListener('scroll', this.onScroll);
-  }
-
-  componentWillUnmount() {
-    window.removeEventListener('scroll', this.onScroll);
   }
 
   toggleSearchBarView = () => {
     this.setState(st => ({ activeSearch: !st.activeSearch }));
+  };
+
+  onScroll = () => {
+    console.log('scrolling from app');
   };
 
   render() {
