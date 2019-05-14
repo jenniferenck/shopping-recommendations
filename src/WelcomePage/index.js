@@ -1,4 +1,4 @@
-import React, { Component, ReactDOM } from 'react';
+import React, { Component } from 'react';
 import { CSSTransitionGroup } from 'react-transition-group';
 import Button from '../Button';
 
@@ -6,12 +6,9 @@ import './WelcomePage.css';
 
 class WelcomePage extends Component {
   handleScroll = evt => {
-    console.log('scrolling on welcome', evt.target);
-    // const coordinates = ReactDOM.findDOMNode(
-    //   this.refs['scroll-container']
-    // ).getBoundingClientRect(); //outputs <h3> coordinates
+    const coordinates = this.refs['scroll-container'].getBoundingClientRect(); //outputs <scroll-container> coordinates
 
-    // console.log('coordinates:', coordinates);
+    console.log('coordinates:', coordinates);
   };
 
   render() {
