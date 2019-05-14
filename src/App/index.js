@@ -41,7 +41,12 @@ class App extends Component {
     if (localStorage.accessToken) {
       this.setState({ accessToken: localStorage.accessToken });
 
-      // ONLY if boards were not found, do we make a request
+      // ONLY if boards & pins were not found, do we make a request
+      if (!localStorage.userPins) {
+        const pins = await PinterestApi.getUserPins(localStorage.accessToken);
+        this.setState({ userPins: pins });
+        localStorage.setItem('userPins', JSON.stringify(pins));
+      }
       if (!localStorage.userBoards) {
         const boards = await PinterestApi.getUserBoards(
           localStorage.accessToken
@@ -66,12 +71,6 @@ class App extends Component {
           localStorage.setItem('accessToken', accessToken);
         }
       }
-    }
-
-    if (!localStorage.userPins) {
-      const pins = await PinterestApi.getUserPins(localStorage.accessToken);
-      this.setState({ userPins: pins });
-      localStorage.setItem('userPins', JSON.stringify(pins));
     }
 
     window.addEventListener('scroll', this.onScroll);
