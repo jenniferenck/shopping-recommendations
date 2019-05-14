@@ -1,13 +1,22 @@
-import React, { Component } from 'react';
+import React, { Component, ReactDOM } from 'react';
 import { CSSTransitionGroup } from 'react-transition-group';
 import Button from '../Button';
 
 import './WelcomePage.css';
 
 class WelcomePage extends Component {
+  handleScroll = evt => {
+    console.log('scrolling on welcome', evt.target);
+    // const coordinates = ReactDOM.findDOMNode(
+    //   this.refs['scroll-container']
+    // ).getBoundingClientRect(); //outputs <h3> coordinates
+
+    // console.log('coordinates:', coordinates);
+  };
+
   render() {
     return (
-      <div className="welcome-page">
+      <div className="welcome-page" onWheel={this.handleScroll}>
         Logo up at top
         <div className="welcome-page-body">
           <div className="left-side">
@@ -44,7 +53,7 @@ class WelcomePage extends Component {
             <Button />
           </div>
           <div className="right-side">
-            <div className="scroll-container">
+            <div ref="scroll-container" className="scroll-container">
               <div className="scroll-item">item</div>
               <div className="scroll-item">item</div>
               <div className="scroll-item">item</div>
