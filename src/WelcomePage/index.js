@@ -6,9 +6,11 @@ import './WelcomePage.css';
 
 class WelcomePage extends Component {
   handleScroll = evt => {
-    const coordinates = this.refs['scroll-container'].getBoundingClientRect(); //outputs <scroll-container> coordinates
+    //outputs <scroll-container> coordinates
+    const left = this.refs['scroll-container'].getBoundingClientRect().x;
+    const top = this.refs['scroll-container'].getBoundingClientRect().top;
 
-    console.log('coordinates:', coordinates);
+    console.log('coordinates:', top, left);
   };
 
   render() {
