@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { ParallaxProvider } from 'react-scroll-parallax';
 
 import './App.css';
 import Nav from '../Nav';
@@ -122,7 +123,9 @@ class App extends Component {
             <BoardsList pins={randomPins} />
           </div>
         ) : (
-          <WelcomePage />
+          <ParallaxProvider>
+            <WelcomePage />
+          </ParallaxProvider>
         )}
       </div>
     );
