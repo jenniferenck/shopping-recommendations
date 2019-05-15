@@ -237,6 +237,10 @@
   margin-left: 200px;
 }
 
+.scroll-section:first-child .scroll-item:first-child {
+  margin-left: 0;
+}
+
 /* MEDIA QUERIES:
 Breakpoints: 
 - make left smaller than right
