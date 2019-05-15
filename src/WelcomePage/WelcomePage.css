@@ -27,6 +27,8 @@
 
 .welcome-logo {
   letter-spacing: 0.25em;
+  position: fixed;
+  top: 1em;
 }
 
 /* LEFT SIDE */
@@ -36,7 +38,7 @@
   flex-direction: column;
   text-align: left;
   position: fixed;
-  margin-top: -2em;
+  margin-top: -1em;
   justify-content: center;
   align-items: center;
   z-index: 200;
