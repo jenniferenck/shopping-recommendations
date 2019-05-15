@@ -57,12 +57,22 @@ class WelcomePage extends Component {
 
           <div className="background-images">
             <div ref="scroll-container" className="scroll-container">
-              <div className="scroll-item">item</div>
-              <div className="scroll-item">item</div>
-              <div className="scroll-item">item</div>
-              <div className="scroll-item">item</div>
-              <div className="scroll-item">item</div>
-              <div className="scroll-item">item</div>
+              <div className="scroll-section">
+                <div className="scroll-item">item</div>
+                <div className="scroll-item">item</div>
+                <div className="scroll-item">item</div>
+                <div className="scroll-item">item</div>
+                <div className="scroll-item">item</div>
+                <div className="scroll-item">item</div>
+              </div>
+              <div className="scroll-section">
+                <div className="scroll-item">item</div>
+                <div className="scroll-item">item</div>
+                <div className="scroll-item">item</div>
+                <div className="scroll-item">item</div>
+                <div className="scroll-item">item</div>
+                <div className="scroll-item">item</div>
+              </div>
             </div>
           </div>
         </div>
