@@ -17,12 +17,16 @@
 
 .welcome-page-body {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   position: relative;
   justify-content: center;
   align-items: center;
   background-color: rgb(0, 0, 0, 0.8);
   overflow: hidden;
+}
+
+.welcome-logo {
+  letter-spacing: 0.25em;
 }
 
 /* LEFT SIDE */
@@ -32,10 +36,7 @@
   flex-direction: column;
   text-align: left;
   position: fixed;
-  /* width: 50vw; */
-  /* height: 80vh; */
-  /* border: solid gray 2px; */
-  margin: 1em;
+  margin-top: -2em;
   justify-content: center;
   align-items: center;
   z-index: 200;

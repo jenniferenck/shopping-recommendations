@@ -16,8 +16,11 @@ class WelcomePage extends Component {
   render() {
     return (
       <div className="welcome-page" onWheel={this.handleScroll}>
-        Logo up at top
         <div className="welcome-page-body">
+          <div className="welcome-logo">
+            <h2>Mine.Now.</h2>
+            <p>M|N</p>
+          </div>
           <div className="left-side">
             <CSSTransitionGroup
               transitionName="example"
