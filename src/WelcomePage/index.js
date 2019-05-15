@@ -58,20 +58,56 @@ class WelcomePage extends Component {
           <div className="background-images">
             <div ref="scroll-container" className="scroll-container">
               <div className="scroll-section">
-                <div className="scroll-item">item</div>
-                <div className="scroll-item">item</div>
-                <div className="scroll-item">item</div>
-                <div className="scroll-item">item</div>
-                <div className="scroll-item">item</div>
-                <div className="scroll-item">item</div>
+                <div className="scroll-item">
+                  <img src="../images/art-image.jpg" alt="example-item" />
+                  <div className="image-overlay" />
+                </div>
+
+                <div className="scroll-item">
+                  <img
+                    src="../images/background-cactus-decor-1470168.jpg"
+                    alt="example-item"
+                  />
+                  <div className="image-overlay" />
+                </div>
+                <div className="scroll-item">
+                  <img src="../images/jewelry-img.jpg" alt="example-item" />
+                  <div className="image-overlay" />
+                </div>
+                <div className="scroll-item">
+                  <img src="../images/DIY-img.jpg" alt="example-item" />
+                  <div className="image-overlay" />
+                </div>
               </div>
+
               <div className="scroll-section">
-                <div className="scroll-item">item</div>
-                <div className="scroll-item">item</div>
-                <div className="scroll-item">item</div>
-                <div className="scroll-item">item</div>
-                <div className="scroll-item">item</div>
-                <div className="scroll-item">item</div>
+                <div className="scroll-item">
+                  <img src="../images/food-img.jpg" alt="example-item" />
+                  <div className="image-overlay" />
+                </div>
+                <div className="scroll-item">
+                  <img src="../images/fashion-image.jpg" alt="example-item" />
+                  <div className="image-overlay" />
+                </div>
+                <div className="scroll-item">
+                  <img src="../images/palms-img.jpg" alt="example-item" />
+                  <div className="image-overlay" />
+                </div>
+                <div className="scroll-item">
+                  <img src="../images/shapes-img.jpg" alt="example-item" />
+                  <div className="image-overlay" />
+                </div>
+                <div className="scroll-item">
+                  <img
+                    src="../images/background-cactus-decor-1470168.jpg"
+                    alt="example-item"
+                  />
+                  <div className="image-overlay" />
+                </div>
+                <div className="scroll-item">
+                  <img src="../images/green-art.jpg" alt="example-item" />
+                  <div className="image-overlay" />
+                </div>
               </div>
             </div>
           </div>
