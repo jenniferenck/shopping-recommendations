@@ -229,12 +229,28 @@
   display: flex;
   height: 200px;
   width: 200px;
-  margin: 1em;
+  margin: 1.5em;
   background-color: #00abe9;
+  box-shadow: 14px 10px 5px black;
 }
 
 .scroll-item:first-child {
-  margin-left: 200px;
+  margin: 0.75em;
+  margin-left: 7em;
+  top: -1em;
+}
+
+.scroll-item:nth-child(2) {
+  top: 2em;
+}
+
+.scroll-item:nth-child(3) {
+  top: -1em;
+}
+
+.scroll-item:nth-child(4) {
+  top: 2em;
+  margin-left: 1em;
 }
 
 .scroll-section:first-child .scroll-item:first-child {
